@@ -1,0 +1,17 @@
+{
+    "short_name": "Kampus Awan",
+    "name": "Kampus Awan",
+    "description": "Windu Pratama personal project",
+  
+    "start_url": ".",
+    "display": "standalone",
+  
+    "theme_color": "#0500EF",
+    "background_color": "#fff",
+  
+    "icons": {
+        "src": "vite.svg",
+        "type": "image/svg",
+        "sizes": "192x192"
+    }
+  }

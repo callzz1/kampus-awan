@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Nyght Serif";
+    src: url("assets/fonts/nyght_serif/NyghtSerif-Light.woff");
+}
+
+@font-face {
+    font-family: "Felidae";
+    src: url("assets/fonts/felidae/Felidae.ttf");
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-file-upload-button {
+    display: none;
+}
