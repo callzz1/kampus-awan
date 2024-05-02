@@ -10,9 +10,9 @@ function Home() {
             <CourseList title="Rekomendasi untuk anda" query={{ sort: "random" }} />
             <CourseList title="Populer" query={{ order: "name", sort: "random" }} />
             <CourseList title="Baru ditambahkan" query={{ order:"createdAt", sort: "desc" }} />
-            <CourseList title="Teknologi" query={{ order: "id", sort: "asc" }} />
-            <CourseList title="Desain" query={{ order: "id", sort: "desc" }} />
-            <CourseList title="Bisnis" query={{ order: "id", sort: "random" }} />        
+            {/* <CourseList title="Teknologi" query={{ order: "id", sort: "asc" }} /> */}
+            {/* <CourseList title="Desain" query={{ order: "id", sort: "desc" }} /> */}
+            {/* <CourseList title="Bisnis" query={{ order: "id", sort: "random" }} /> */}
         </>
     )
 }
