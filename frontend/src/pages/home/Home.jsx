@@ -1,19 +1,19 @@
 import CourseList from "../../components/CourseList";
 import Banner from "../../components/UI/Banner";
-// import NoticeBox from "../../components/UI/NoticeBox";
+import NoticeBox from "../../components/UI/NoticeBox";
 
 function Home() {
     return (
-        <>
-            {/* <NoticeBox></NoticeBox> */}
+        <div className="flex flex-col gap-8">
+
+            <NoticeBox 
+                title="Karena adanya limitasi free tier vercerl, fetching data mungkin akan terjadi timeout gateway!"
+            />            
             <Banner />
-            <CourseList title="Rekomendasi untuk anda" query={{ sort: "random" }} />
-            <CourseList title="Populer" query={{ order: "name", sort: "random" }} />
-            <CourseList title="Baru ditambahkan" query={{ order:"createdAt", sort: "desc" }} />
-            {/* <CourseList title="Teknologi" query={{ order: "id", sort: "asc" }} /> */}
-            {/* <CourseList title="Desain" query={{ order: "id", sort: "desc" }} /> */}
-            {/* <CourseList title="Bisnis" query={{ order: "id", sort: "random" }} /> */}
-        </>
+            <CourseList title="Rekomendasi untuk anda" query={{ sort: "random", limit: 5 }} />
+            <CourseList title="Populer" query={{ order: "name", sort: "random", limit: 5  }} />
+            <CourseList title="Baru ditambahkan" query={{ order:"createdAt", sort: "desc", limit: 5  }} />
+        </div>
     )
 }
 

@@ -18,7 +18,12 @@ function SidePanel() {
                 <Profile />                
                 {
                     !user.is_subscribed &&
-                    <NoticeBox />
+                    <NoticeBox 
+                        title="Belum berlangganan membership?"
+                        description="Beli langganan membership Kampus Awan untuk mengakses konten pembelajaran yang ada."
+                        link="/berlangganan"
+                        linkTitle="Berlangganan"
+                    />
                 }
 
                 {/* navbar */}

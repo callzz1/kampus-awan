@@ -13,6 +13,7 @@
   "dependencies": {
     "@sequelize/postgres": "^7.0.0-alpha.40",
     "@supabase/supabase-js": "^2.42.5",
+    "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "connect-session-sequelize": "^7.1.7",
     "cookie-parser": "^1.4.6",

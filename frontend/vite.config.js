@@ -9,7 +9,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'https://api.windupratama.me/api/',
+        target: 'http://localhost:3000/',
       },
     },
   },

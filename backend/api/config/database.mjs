@@ -1,12 +1,12 @@
 import dotenv from "dotenv";
 import { DataTypes, Sequelize } from "sequelize";
 import { __dirname } from "../index.mjs";
-import mysql2 from "mysql2"
+import { PostgresDialect } from "@sequelize/postgres";
+
 dotenv.config();
 
-export const database = new Sequelize(process.env.DATABASE_URL, {
-    dialect: "mysql",
-    dialectModule: mysql2,
+export const database = new Sequelize(process.env.SUPABASE_DATABASE_URL, {
+    dialect: PostgresDialect,
     pool: {
         max: 100,
         min: 0,
@@ -130,6 +130,6 @@ const Video = database.define("videos",
 // FK course to user
 Course.belongsTo(User, { foreignKey: 'user_id' });
 
-database.sync();
+// database.sync();
 
 export { User, Course, Video };
