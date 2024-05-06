@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function CourseList({ title, query }) {
     const [ courses, setCourses ] = useState([]);
     const [ isHover, setIsHover ] = useState(false);
+    const [ loading, setLoading ] = useState(false);
 
     const APIURL = (url, { order, sort, limit }) => {
         let query = url;
@@ -31,6 +32,7 @@ function CourseList({ title, query }) {
     async function getCourses() {
         const apiURL = APIURL("/api/courses", query);
         
+        setLoading(() => true);
         try {            
             const request = await fetch(apiURL);
             const courses = await request.json();
@@ -40,12 +42,12 @@ function CourseList({ title, query }) {
             console.log("Failed to fetch courses!");
             throw "Failed to fetch courses!";
         }
+        setLoading(() => false);
     }
 
     useEffect(() => {
         getCourses();
     }, []);
-
     return (
         <>
             <div className="flex w-full h-full flex-col gap-4">
@@ -55,6 +57,8 @@ function CourseList({ title, query }) {
                 </Link>
                 <div className="flex flex-row gap-4 overflow-x-scroll pb-4">
                     {
+                        loading ?
+                        <div className="flex w-full items-center justify-center">Loading</div> :
                         courses?.map((course, index) => {
                             return (
                                 <CourseBox 
