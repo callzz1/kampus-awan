@@ -7,7 +7,7 @@ function Home() {
         <div className="flex flex-col gap-8">
 
             <NoticeBox 
-                title="Karena adanya limitasi free tier vercerl, fetching data mungkin akan terjadi timeout gateway!"
+                title="Notice: Karena adanya limitasi free tier vercel, fetching data mungkin akan terjadi timeout gateway!"
             />            
             <Banner />
             <CourseList title="Rekomendasi untuk anda" query={{ sort: "random", limit: 5 }} />
