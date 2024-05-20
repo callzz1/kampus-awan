@@ -3,6 +3,7 @@ import { GlobalContext } from "../../App";
 import { Link } from "react-router-dom";
 import ImageBox from "../../components/UI/ImageBox";
 import { RiAddFill as AddIcon } from "react-icons/ri";
+import { backendUrl } from "../../utils/backendUrl";
 
 function MitraPanel() {
     const [ courses, setCourses ] = useState([]);
@@ -11,7 +12,7 @@ function MitraPanel() {
     useEffect(() => {
         
         async function getCourses() {
-            const request = await fetch(`/api/courses?mitra=${ user.id }`);
+            const request = await fetch(`${ backendUrl }/api/courses?mitra=${ user.id }`);
             const result = await request.json();
         
             setCourses(result);

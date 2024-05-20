@@ -4,6 +4,7 @@ import Submit from "../../components/form/Submit";
 import InputFile from "../../components/form/InputFile";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { backendUrl } from "../../utils/backendUrl";
 
 function Register() { 
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Register() {
         setLoading(() => true);
 
         try {
-            const req = await fetch("/api/register", { 
+            const req = await fetch(`${ backendUrl }/api/register`, { 
                 method: "POST",
                 body: data
              });

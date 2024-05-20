@@ -2,6 +2,7 @@ import Submit from "../../components/form/Submit";
 import { useContext } from "react";
 import { GlobalContext } from "../../App";
 import { Link, useNavigate } from "react-router-dom";
+import { backendUrl } from "../../utils/backendUrl";
 
 function Profile() {
     const { isLoggedIn, setIsLoggedIn } = useContext(GlobalContext);
@@ -10,7 +11,7 @@ function Profile() {
     async function handleLogout(event) {
         event.preventDefault();
 
-        const req = await fetch("/api/session", {
+        const req = await fetch(`${ backendUrl }/api/session`, {
             method: "DELETE"
         });
 

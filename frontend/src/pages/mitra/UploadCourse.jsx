@@ -4,6 +4,7 @@ import InputText from "../../components/form/InputText";
 import TextArea from "../../components/form/TextArea";
 import Submit from "../../components/form/Submit";
 import InputFile from "../../components/form/InputFile";
+import { backendUrl } from "../../utils/backendUrl";
 
 function UploadCourse() { 
     const { user } = useContext(GlobalContext);
@@ -20,7 +21,7 @@ function UploadCourse() {
         setLoading(() => true);
 
         try {
-            const req = await fetch("/api/courses", { 
+            const req = await fetch(`${ backendUrl }/api/courses`, { 
                 method: "POST",
                 body: form
              });

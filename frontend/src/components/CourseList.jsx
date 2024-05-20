@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CourseBox from "./CourseBox";
 import { RiArrowRightUpLine as ArrowIcon } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { backendUrl } from "../utils/backendUrl";
 
 function CourseList({ title, query }) {
     const [ courses, setCourses ] = useState([]);
@@ -30,7 +31,7 @@ function CourseList({ title, query }) {
     }
 
     async function getCourses() {
-        const apiURL = APIURL("/api/courses", query);
+        const apiURL = APIURL(`${ backendUrl }/api/courses`, query);
         
         setLoading(() => true);
         try {            

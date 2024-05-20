@@ -12,10 +12,5 @@ export default defineConfig({
   server: {
     port: 5000,
     open: true,
-    proxy: {
-      '/api': {
-        target: process.env.VITE_PROXY_URL,
-      },
-    },
   },
 });

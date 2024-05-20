@@ -26,7 +26,14 @@ const SESSION_SECRET = process.env.SESSION_SECRET;
 export const __dirname = import.meta.dirname;
 
 // middleware
-server.use(cors());
+server.use(cors({
+    origin: [
+        "http://localhost:5000",
+        "https://kampusawan.windupratama.me"
+    ],
+    methods: "GET, POST, PUT, DELETE",
+    optionsSuccessStatus: 200
+}));
 server.use(json());
 server.use(cookieParser());
 server.use(session({

@@ -13,6 +13,7 @@ import Video from "./pages/course/Video";
 import Search from "./pages/home/Search";
 import MitraPanel from "./pages/mitra/MitraPanel";
 import Subscribe from "./pages/promotion/Subscribe";
+import { backendUrl } from "./utils/backendUrl";
 
 export const GlobalContext = createContext();
 
@@ -25,7 +26,7 @@ function App() {
   });
   
   async function getStatus() {
-    const request = await fetch("/api/session/status");
+    const request = await fetch(`${ backendUrl }/api/session/status`);
     const response = await request.json();
 
     setIsLoggedIn(() => response.status);
@@ -37,7 +38,7 @@ function App() {
 
   useEffect(() => {
     async function getUser() {
-      const request = await fetch("/api/session/user");
+      const request = await fetch(`${ backendUrl }/api/session/user`);
       const response = await request.json();
 
       setUser(() => {

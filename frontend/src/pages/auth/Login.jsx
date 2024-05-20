@@ -4,6 +4,7 @@ import InputText from "../../components/form/InputText";
 import InputPassword from "../../components/form/InputPassword";
 import Submit from "../../components/form/Submit";
 import { Link, useNavigate } from "react-router-dom";
+import { backendUrl } from "../../utils/backendUrl";
 
 function Login() { 
     const { setIsLoggedIn } = useContext(GlobalContext);
@@ -21,7 +22,7 @@ function Login() {
         setLoading(() => true);
 
         try {
-            const req = await fetch("/api/login", { 
+            const req = await fetch(`${ backendUrl }/api/login`, { 
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

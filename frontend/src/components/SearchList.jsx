@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ImageBox from "./UI/ImageBox";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { backendUrl } from "../utils/backendUrl";
 
 function SearchList({ query }) {
     const [ courses, setCourses ] = useState([]);
@@ -37,7 +38,7 @@ function SearchList({ query }) {
     async function getCourses() {
         query = { name: searchValue };
         
-        const apiURL = APIURL("/api/courses", query);
+        const apiURL = APIURL(`${ backendUrl }/api/courses`, query);
 
         setLoading(() => true);
         

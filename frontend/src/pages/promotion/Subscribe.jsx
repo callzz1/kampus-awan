@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { RiPlayFill as BookIcon, RiVerifiedBadgeFill as VerifiedIcon, RiSparkling2Fill as SparklingIcon, RiRobot2Fill as RobotIcon } from "react-icons/ri";
 import { GlobalContext } from "../../App";
+import { backendUrl } from "../../utils/backendUrl";
 
 function Subscribe() {
     const { isLoggedIn, user, setUser } = useContext(GlobalContext);
@@ -30,7 +31,7 @@ function Subscribe() {
         }
 
         try {
-            const request = await fetch("/api/subscribe");
+            const request = await fetch(`${ backendUrl }/api/subscribe`);
             const result = await request.json();
 
             alert(result.message);

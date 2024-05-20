@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import InputText from "../../components/form/InputText";
 import {  RiStickyNoteFill as BookIcon, RiSparkling2Fill as SparkleIcon} from "react-icons/ri";
 import Submit from "../../components/form/Submit";
+import { backendUrl } from "../../utils/backendUrl";
 
 function Video() {
     const { courseId } = useParams();
@@ -38,7 +39,7 @@ function Video() {
     useEffect(() => { 
         async function getVideo() {
             try {
-                const request = await fetch(`/api/videos?id=${ videoId }`);
+                const request = await fetch(`${ backendUrl }/api/videos?id=${ videoId }`);
                 const result = await request.json();
         
                 setVideo(result);
@@ -53,7 +54,7 @@ function Video() {
     useEffect(() => { 
         async function getVideo() {
             try {
-                const request = await fetch(`/api/courses?id=${ courseId }`);
+                const request = await fetch(`${ backendUrl }/api/courses?id=${ courseId }`);
                 const result = await request.json();
         
                 setCourse(result);
@@ -83,7 +84,7 @@ function Video() {
         event.target.ask.value = ""
 
         try {
-            const request = await fetch(`/api/ai?chat=${ value }`, {
+            const request = await fetch(`${ backendUrl }/api/ai?chat=${ value }`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

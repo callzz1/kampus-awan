@@ -6,6 +6,7 @@ import Box from "../../components/UI/Box";
 import { Link } from "react-router-dom";
 import { RiPlayFill as PlayIcon, RiAddLine as AddIcon, RiNewspaperFill as PaperIcon, RiLockFill as LockIcon } from "react-icons/ri";
 import { GlobalContext } from "../../App";
+import { backendUrl } from "../../utils/backendUrl";
 
 function Course() {    
     const { isLoggedIn, user } = useContext(GlobalContext);
@@ -21,7 +22,7 @@ function Course() {
 
     async function getCourse() {
         try {
-            const request = await fetch(`/api/courses?id=${ courseId }`);
+            const request = await fetch(`${ backendUrl }/api/courses?id=${ courseId }`);
             const response = await request.json();
     
             setCourse(() => response);
@@ -33,7 +34,7 @@ function Course() {
 
     async function getVideo() {
         try {
-            const request = await fetch(`/api/videos?courseid=${ courseId }`);
+            const request = await fetch(`${ backendUrl }/api/videos?courseid=${ courseId }`);
             const response = await request.json();
     
             setVideos(response);
