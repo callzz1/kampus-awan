@@ -24,7 +24,7 @@ const SERVER_PORT = process.env.SERVER_PORT || 3001;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 
 export const __dirname = import.meta.dirname;
-
+console.log("tes")
 // middleware
 server.use(cors({
     origin: [
